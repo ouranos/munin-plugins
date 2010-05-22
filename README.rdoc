@@ -1,0 +1,19 @@
+= Munin Plugins
+Collection of Concise Munin plugins
+
+== Installation
+The plugins follows the default munin installation scheme:
+    git clone git://github.com/ouranos/munin-plugins.git
+    cp munin-plugins/sphinx_ /usr/share/munin/plugins/
+    chmod +x /usr/share/munin/plugins/sphinx_
+    ln -s /usr/share/munin/plugins/sphinx_ /etc/munin/plugins/sphinx_queries
+    vi /etc/munin/plugin-conf.d/munin-node
+
+Paste the configuration from the documentation of sphinx_ into the munin-node file.
+    [sphinx_*]
+    env.searchd_log_path /path/to/searchd.log
+    env.query_log_path /path/to/searchd.query.log
+    command /usr/local/bin/ruby %c
+
+For more detailed information, see the documentation embedded in the plugin.
+
